@@ -1,0 +1,199 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active {outline: none;}
+a:focus,a:active {outline: none;}
+
+nav,footer, header, aside {display: block;}
+
+html,body {
+    height: 100%;
+    height: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited {text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6 {font-size: inherit;font-weight: 400;}
+
+
+// null style end null style endnull style endnull style endnull style end
+@mixin interactiveText() {
+    color: rgb(255, 255, 255);
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+    transition: all .2s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        color: $accent;
+    }
+}
+@mixin container() {
+    margin: 0 auto;
+    max-width: 1790px;
+    padding: 0 15px;
+}
+
+@mixin btn() {
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    display: flex;
+}
+@mixin title() {
+    color: rgb(255, 255, 255);
+    font-family: Chronicle Display;
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 100px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: capitalize;
+}
+@mixin uppertitle() {
+    color: rgb(251, 215, 132);
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 22px;
+    letter-spacing: 6px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 102px;
+    .uppertitleLine {
+        width: 72px;
+        height: 2px;
+        background-color: $accent;
+        position: absolute;
+        top: 10px;
+        left: 0;
+    }
+}
+$accent:  rgb(251, 215, 132);
+
+.header {
+    &__container {
+        @include container;
+    }
+    &__top-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    padding: 64px 0;
+    position: relative;
+    .bgpicture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+    }
+    // background-image: url(../img/headerbg.jpeg);
+    // height: 100vh;
+    // width: 100wh;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    &__content-inner {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+    &__content-title {
+        max-width: 75vw;
+        margin: 0 auto;
+        margin-top: 150px;
+        .uppertitle {
+            @include uppertitle();
+
+        }
+        .title {
+            margin: 32px 0;
+            @include title;
+        }
+        .interactivebtn {
+            @include interactiveText();
+            background-color: transparent;
+            img {
+                padding-left: 10px;
+            }
+        }
+    }
+}
+
+.kindofnavigation {
+    display: flex;
+    gap: 0 40px;
+    li {
+        @include interactiveText();
+    }
+}
+
+.profile__btn {
+    @include btn();
+    padding: 10px;
+    @include interactiveText();
+    font-size: 17px;
+    line-height: 21px;
+    img {
+     margin-right: 10px;
+    }
+}
+
+.followus {
+    position: absolute;
+    @include interactiveText();
+    writing-mode: vertical-rl;
+    display: flex;
+    flex-direction: row;
+    gap: 0 30px;
+}
+
+.navigation {
+    // position: absolute;
+    // right: 2%;
+    text-align: right;
+    // top: 45%;
+    li {
+        margin: 38px 0;
+    }
+    a {
+        @include interactiveText();
+        padding: 20px 30px;
+        &.disable {
+            border-right: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        &.active {
+            border-right: 3px solid rgba(255, 255, 255);
+        }
+        border-right: 3px solid rgba(255, 255, 255, 0.5);
+        &:hover {
+            border-right: 3px solid $accent;
+        }
+    }
+}
